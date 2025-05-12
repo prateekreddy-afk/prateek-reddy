@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Demonstration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    section {
+      margin-bottom: 30px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    input[type="number"], input[type="text"] {
+      padding: 5px;
+      margin: 5px;
+    }
+
+    button {
+      padding: 5px 10px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #colorBox {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Features Demonstration</h1>
+  Name: pagilla prateek reddy <br> 
+    Enrollment No: SAU/CS/DMTECH(CSE)/2024/15<br>
+    Section: A
+  <section>
+    <h2>1. Variables and Operators</h2>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <input type="number" id="num2" placeholder="Enter second number">
+    <button onclick="showOperations()">Show Operations</button>
+    <div id="operationsResult"></div>
+  </section>
+
+  <section>
+    <h2>2. Control Structures</h2>
+    <input type="number" id="loopNum" placeholder="Enter a number">
+    <button onclick="generateTable()">Show Multiplication Table</button>
+    <div id="tableResult"></div>
+  </section>
+
+  <section>
+    <h2>3. Loop and Conditionals</h2>
+    <input type="number" id="conditionNum" placeholder="Enter a number">
+    <button onclick="checkEvenOdd()">Check Even/Odd</button>
+    <div id="loopOutput"></div>
+  </section>
+
+  <section>
+    <h2>4. Functions</h2>
+    <input type="number" id="funcNum" placeholder="Enter a number">
+    <button onclick="calculateSquare()">Calculate Square</button>
+    <div id="funcOutput"></div>
+  </section>
+
+  <section>
+    <h2>5. Objects and Arrays</h2>
+    <button onclick="showStudentInfo()">Show Student Info</button>
+    <div id="studentInfo"></div>
+  </section>
+
+  <section>
+    <h2>6. Events and DOM Manipulation</h2>
+    <input type="range" min="0" max="255" id="rRange" oninput="changeColor()"> R<br>
+    <input type="range" min="0" max="255" id="gRange" oninput="changeColor()"> G<br>
+    <input type="range" min="0" max="255" id="bRange" oninput="changeColor()"> B<br>
+    <div id="colorBox"></div>
+  </section>
+
+  <script>
+    function showOperations() {
+      let a = parseFloat(document.getElementById("num1").value);
+      let b = parseFloat(document.getElementById("num2").value);
+      if (isNaN(a) || isNaN(b)) {
+        document.getElementById("operationsResult").innerHTML = "Please enter valid numbers.";
+        return;
+      }
+
+      let result = `
+        Addition: ${a + b}<br>
+        Subtraction: ${a - b}<br>
+        Multiplication: ${a * b}<br>
+        Division: ${b !== 0 ? (a / b).toFixed(2) : 'Cannot divide by zero'}<br>
+      `;
+      document.getElementById("operationsResult").innerHTML = result;
+    }
+
+    function generateTable() {
+      let num = parseInt(document.getElementById("loopNum").value);
+      if (isNaN(num)) {
+        document.getElementById("tableResult").innerHTML = "Enter a valid number.";
+        return;
+      }
+
+      let output = `<strong>Multiplication Table for ${num}:</strong><br>`;
+      for (let i = 1; i <= 10; i++) {
+        output += `${num} × ${i} = ${num * i}<br>`;
+      }
+      document.getElementById("tableResult").innerHTML = output;
+    }
+
+    function checkEvenOdd() {
+      let num = parseInt(document.getElementById("conditionNum").value);
+      if (isNaN(num)) {
+        document.getElementById("loopOutput").innerHTML = "Enter a valid number.";
+        return;
+      }
+
+      document.getElementById("loopOutput").innerHTML = (num % 2 === 0) ? `${num} is Even.` : `${num} is Odd.`;
+    }
+
+    function calculateSquare() {
+      let num = parseFloat(document.getElementById("funcNum").value);
+      if (isNaN(num)) {
+        document.getElementById("funcOutput").innerHTML = "Enter a valid number.";
+        return;
+      }
+
+      let square = num * num;
+      document.getElementById("funcOutput").innerHTML = `Square of ${num} is ${square}`;
+    }
+
+    function showStudentInfo() {
+      let student = {
+        name: "Rahul Sharma",
+        age: 20,
+        courses: ["Math", "Physics", "CS"],
+        address: {
+          city: "Delhi",
+          pin: 110001
+        }
+      };
+
+      let info = `
+        Name: ${student.name}<br>
+        Age: ${student.age}<br>
+        Courses: ${student.courses.join(", ")}<br>
+        City: ${student.address.city}<br>
+        PIN: ${student.address.pin}
+      `;
+      document.getElementById("studentInfo").innerHTML = info;
+    }
+
+    function changeColor() {
+      let red = document.getElementById("rRange").value;
+      let green = document.getElementById("gRange").value;
+      let blue = document.getElementById("bRange").value;
+
+      document.getElementById("colorBox").style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    }
+  </script>
+</body>
+</html>

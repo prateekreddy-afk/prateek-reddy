@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prateek Reddy - Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --accent1: #4fd1c5;
+      --accent2: #805ad5;
+      --bg-overlay: rgba(0, 0, 0, 0.6);
+      --card-bg: rgba(255, 255, 255, 0.1);
+      --text-light: #f0f0f0;
+      --border-radius: 20px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Outfit', sans-serif;
+      color: var(--text-light);
+      background: linear-gradient(to top, #0f0c29, #302b63, #24243e);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-image: url("https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-1.2.1&auto=format&fit=crop&w=3450&q=80");
+      background-size: cover;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: auto;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 3rem;
+      font-weight: bold;
+      background: linear-gradient(to right, var(--accent1), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .profile-pic {
+      margin: auto;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--accent1);
+      box-shadow: 0 0 20px rgba(255,255,255,0.4);
+      transition: transform 0.5s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.1) rotate(360deg);
+    }
+
+    .info {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+    }
+
+    .info p {
+      margin: 0.5rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .info a {
+      color: var(--accent2);
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .info a::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent1);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .info a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 3rem;
+      justify-content: center;
+    }
+
+    .column {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      width: 300px;
+      text-align: left;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .column:hover {
+      transform: translateY(-5px);
+    }
+
+    .column h2 {
+      color: var(--accent1);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .skills-list ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .skills-list li {
+      padding: 0.5rem 0;
+    }
+
+    .skills-list strong {
+      color: var(--accent2);
+    }
+
+    .projects, .interests {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 900px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    .projects h2, .interests h2 {
+      color: var(--accent1);
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      background: linear-gradient(145deg, var(--accent1), var(--accent2));
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    }
+
+    @media (max-width: 768px) {
+      .columns {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .column {
+        width: 90%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1 class="title">Prateek Reddy</h1>
+    <div class="profile-pic">
+      <img src="pika.webp" alt="Profile" width="150" height="150">
+    </div>
+
+    <div class="info">
+      <p><i class="fas fa-envelope"></i> <a href="mailto:prateekreddy@students.sau.ac.in">prateekreddy@students.sau.ac.in</a></p>
+      <p><i class="fas fa-phone-alt"></i> <a href="tel:9266851869">+91 913311221</a></p>
+      <p><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/New+Delhi" target="_blank">New Delhi</a></p>
+      <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/prateek-reddy-4a17a6345/" target="_blank">LinkedIn</a></p>
+      <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/_prateek_reddy_/" target="_blank">_prateek_reddy_</a></p>
+    </div>
+
+    <div class="columns">
+      <div class="column">
+        <h2>About Me</h2>
+        <p>Hi, I'm Prateek , a passionate B.Tech student who enjoys blending logic and creativity. My interests range from coding in C/Python to exploring design via Figma and Canva. I'm also intrigued by global geopolitics and researching the physics behind AI. I'm eager to pursue higher studies abroad in emerging technologies.</p>
+      </div>
+
+      <div class="column">
+        <h2>Skills</h2>
+        <div class="skills-list">
+          <ul>
+            <li><strong>Languages:</strong> C, Python, JavaScript</li>
+            <li><strong>Web:</strong> HTML, CSS, JS</li>
+            <li><strong>DSA:</strong> Linked Lists, Trees, Graphs</li>
+            <li><strong>AI/ML:</strong> Physics of AI, Neural Nets, ML</li>
+            <li><strong>Soft Skills:</strong> Problem Solving, Creativity</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="column">
+        <h2>Education</h2>
+        <div class="skills-list">
+          <ul>
+            <li><strong>Primary:</strong> st mary's public school</li>
+            <li><strong>Middle:</strong> K.V andrewes ganj</li>
+            <li><strong>Secondary:</strong> andhra school pushvihar </li>
+            <li><strong>UG:</strong> South Asian University</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects">
+      <h2>Projects</h2>
+      <p>- E-commerce record management (C)<br>- Directory system using linked list<br>- Hotel management software (Python + SQL)</p>
+    </div>
+
+    <div class="interests">
+      <h2>Interests</h2>
+      <p>Coding, AI/ML, Design, Chess, Exploring Tech</p>
+    </div>
+
+    <button class="btn">Download Resume</button>
+  </div>
+</body>
+</html>
